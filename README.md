@@ -4,6 +4,18 @@
 [![License](https://img.shields.io/badge/license-Apache%202-4EB1BA.svg)](https://www.apache.org/licenses/LICENSE-2.0.html)
 
 **[Apache RocketMQ](https://rocketmq.apache.org) is a distributed messaging and streaming platform with low latency, high performance and reliability, trillion-level capacity and flexible scalability.**
+ 
+**源码解析，公号"天河聊架构"** 
+
+![微信公众号](gonghao.jpg) 
+
+**技术微信群**
+ 
+![技术微信群](wechat.png) 
+
+**技术钉钉群** 
+
+![技术钉钉群](dingchat.png) 
 
 It offers a variety of features:
 
