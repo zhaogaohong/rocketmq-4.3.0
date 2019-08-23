@@ -43,5 +43,6 @@ public class PushConsumer {
         });
         consumer.start();
         System.out.printf("Consumer Started.%n");
+        consumer.shutdown();
     }
 }

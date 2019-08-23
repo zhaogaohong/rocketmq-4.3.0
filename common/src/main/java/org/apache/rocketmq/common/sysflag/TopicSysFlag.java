@@ -18,17 +18,19 @@ package org.apache.rocketmq.common.sysflag;
 //
 public class TopicSysFlag {
 
-    private final static int FLAG_UNIT = 0x1 << 0;
+    private final static int FLAG_UNIT = 0x1 << 0;//1
 
-    private final static int FLAG_UNIT_SUB = 0x1 << 1;
+    private final static int FLAG_UNIT_SUB = 0x1 << 1;//2
 //
     public static int buildSysFlag(final boolean unit, final boolean hasUnitSub) {
         int sysFlag = 0;
 
+//        非%RETRY%开头的，非重试的topic
         if (unit) {
             sysFlag |= FLAG_UNIT;
         }
 
+//        %RETRY%开头的，重试的topic
         if (hasUnitSub) {
             sysFlag |= FLAG_UNIT_SUB;
         }

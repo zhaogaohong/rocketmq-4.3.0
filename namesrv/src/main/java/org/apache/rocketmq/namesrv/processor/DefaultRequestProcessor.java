@@ -112,7 +112,7 @@ public class DefaultRequestProcessor implements NettyRequestProcessor {
                 return this.getBrokerClusterInfo(ctx, request);
             case RequestCode.WIPE_WRITE_PERM_OF_BROKER:
                 return this.wipeWritePermOfBroker(ctx, request);
-//                从namesrv中获取所有的broker列表=》
+//                从namesrv中获取所有的topic列表=》
             case RequestCode.GET_ALL_TOPIC_LIST_FROM_NAMESERVER:
                 return getAllTopicListFromNameserver(ctx, request);
 //                删除namesrv中的topic=》
@@ -121,7 +121,7 @@ public class DefaultRequestProcessor implements NettyRequestProcessor {
 //                获取指定命名空间的配置=》
             case RequestCode.GET_KVLIST_BY_NAMESPACE:
                 return this.getKVListByNamespace(ctx, request);
-//                获取集群的所有topic=》
+//                获取broker集群的所有topic=》
             case RequestCode.GET_TOPICS_BY_CLUSTER:
                 return this.getTopicsByCluster(ctx, request);
 //                从namesrv中获取系统的topic列表=》
@@ -133,7 +133,7 @@ public class DefaultRequestProcessor implements NettyRequestProcessor {
 //                获取单元化模式消费失败重试的%RETRY%开头的topic=》
             case RequestCode.GET_HAS_UNIT_SUB_TOPIC_LIST:
                 return this.getHasUnitSubTopicList(ctx, request);
-//                获取单元化模式消费失败重试的%RETRY%开头的topic=》
+//                获取非单元化模式的topic=》
             case RequestCode.GET_HAS_UNIT_SUB_UNUNIT_TOPIC_LIST:
                 return this.getHasUnitSubUnUnitTopicList(ctx, request);
 //                更新namesrv配置=》

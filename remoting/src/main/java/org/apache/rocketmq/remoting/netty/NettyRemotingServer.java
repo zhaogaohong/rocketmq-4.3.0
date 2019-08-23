@@ -231,7 +231,7 @@ public class NettyRemotingServer extends NettyRemotingAbstract implements Remoti
         }
 
         if (this.channelEventListener != null) {
-//            nett处理器启动=》
+//            netty处理器启动=》
             this.nettyEventExecutor.start();
         }
 
