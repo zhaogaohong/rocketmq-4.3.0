@@ -579,8 +579,9 @@ public class CommitLog {
         }
 
         long eclipseTimeInLock = 0;
+        // 获取写入映射文件
         MappedFile unlockMappedFile = null;
-//        获取映射文件队列的最后一个映射文件
+//       获取映射文件队列的最后一个映射文件
         MappedFile mappedFile = this.mappedFileQueue.getLastMappedFile();
 
 //        自旋锁或者互斥锁
@@ -620,7 +621,7 @@ public class CommitLog {
                         beginTimeInLock = 0;
                         return new PutMessageResult(PutMessageStatus.CREATE_MAPEDFILE_FAILED, result);
                     }
-//                    处理消息=》
+//                    处理消息=》  // 存储消息
                     result = mappedFile.appendMessage(msg, this.appendMessageCallback);
                     break;
 //                    消息过大
@@ -1150,6 +1151,7 @@ public class CommitLog {
                         // two times the flush
                         boolean flushOK = false;
                         for (int i = 0; i < 2 && !flushOK; i++) {
+                            // 是否满足需要flush条件，即请求的offset超过flush的offset
                             flushOK = CommitLog.this.mappedFileQueue.getFlushedWhere() >= req.getNextOffset();
 
                             if (!flushOK) {
@@ -1169,6 +1171,7 @@ public class CommitLog {
                 } else {
                     // Because of individual messages is set to not sync flush, it
                     // will come to this process
+                    // 走到此处的逻辑，相当于发送一条消息，落盘一条消息，实际无批量提交的效果。
                     CommitLog.this.mappedFileQueue.flush(0);
                 }
             }

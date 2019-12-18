@@ -1,0 +1,16 @@
+DefaultMQProducer->send 该类是打算发送消息的应用程序的入口点
+Broker 接收消息 SendMessageProcessor->processRequest 落盘 发送到Consumer
+
+//        commitLog存储消息=》 重点
+        PutMessageResult result = this.commitLog.putMessage(msg);
+
+
+
+启动 RocketMQ Namesrv
+NameServerInstanceTest.startup();
+启动 RocketMQ Broker
+BrokerControllerTest.testBrokerRestart()
+启动 RocketMQ Producer
+org.apache.rocketmq.example.quickstart.Producer
+启动 RocketMQ Consumer
+org.apache.rocketmq.example.quickstart.Consumer
